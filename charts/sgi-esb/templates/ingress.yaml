@@ -36,8 +36,19 @@ spec:
           {{- range .paths }}
           - path: {{ .path }}
             backend:
+            {{- if semverCompare "<1.19-0" $.Capabilities.KubeVersion.GitVersion }}
               serviceName: {{ $fullName }}
               servicePort: {{ $svcPort }}
+            {{- else }}
+              service:
+                name: {{ $fullName }}
+                port:
+                  {{- if typeIs "string" $svcPort }}
+                  name: {{ $svcPort }}
+                  {{- else if or (typeIs "int" $svcPort) (typeIs "float64" $svcPort) }}
+                  number: {{ $svcPort | int }}
+                  {{- end }}
+            {{- end }}
           {{- end }}
     {{- end }}
   {{- end }}
