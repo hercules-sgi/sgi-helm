@@ -36,7 +36,7 @@ server:
   port: 8080
 
 spring:
-  datasourceUrl: jdbc:postgresql://localhost:5432/db
+  datasourceUrl: jdbc:postgresql://sgi-postgresql:5432/db
   liquibaseContexts: dev
 
 imagePullSecrets: []
