@@ -32,7 +32,10 @@ serviceAccount:
   # If not set and create is true, a name is generated using the fullname template
   name: ""
 
-podAnnotations: {}
+#by default activate rollme annotation to rollout pod with every update
+annotations:
+  enabled: true
+  podAnnotations: {}
 
 podSecurityContext: {}
 # fsGroup: 2000
@@ -44,9 +47,6 @@ securityContext: {}
 # readOnlyRootFilesystem: true
 # runAsNonRoot: true
 # runAsUser: 1000
-
-configMap:
-  sgiRealmJson: "config/sgi-realm.json"
 
 service:
   type: ClusterIP
