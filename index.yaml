@@ -105,6 +105,16 @@ entries:
   sgi-keycloak:
   - apiVersion: v2
     appVersion: image
+    created: "2023-04-12T15:31:47.318099189Z"
+    description: A Helm chart for the Keycloak service for SGI.
+    digest: 69f123e0ccc1e3bdadc95465beb988a18e42a0a3de139f4c5cf43ec580841e5c
+    name: sgi-keycloak
+    type: application
+    urls:
+    - https://github.com/hercules-sgi/sgi-helm/releases/download/sgi-keycloak-0.1.17/sgi-keycloak-0.1.17.tgz
+    version: 0.1.17
+  - apiVersion: v2
+    appVersion: image
     created: "2022-12-12T12:28:06.156714148Z"
     description: A Helm chart for the Keycloak service for SGI.
     digest: 2c013cb6d4aa27db0a047c5171aa3415462c3758ee9aeeba10d6b87fbe3f7cd8
@@ -195,6 +205,99 @@ entries:
     - https://github.com/hercules-sgi/sgi-helm/releases/download/sgi-service-0.1.5/sgi-service-0.1.5.tgz
     version: 0.1.5
   sgi-umbrella:
+  - apiVersion: v2
+    appVersion: umbrella
+    created: "2023-04-12T15:31:47.518840582Z"
+    dependencies:
+    - name: sgi-webapp
+      repository: file://../sgi-webapp
+      version: 0.1.4
+    - alias: sgi-usr-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.8
+    - alias: sgi-eer-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.8
+    - alias: sgi-eti-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.8
+    - alias: sgi-csp-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.8
+    - alias: sgi-pii-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.8
+    - alias: sgi-rel-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.8
+    - alias: sgi-tp-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.8
+    - alias: sgi-rep-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.8
+    - alias: sgi-com-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.8
+    - alias: sgi-cnf-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.8
+    - alias: sgi-prc-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.8
+    - name: sgi-keycloak
+      repository: file://../sgi-keycloak
+      version: 0.1.17
+    - name: sgi-esb
+      repository: file://../sgi-esb
+      version: 0.1.25
+    - alias: sgp-service
+      condition: sgp.enabled
+      name: sgi-esb-external
+      repository: file://../sgi-esb-external
+      version: 0.2.3
+    - alias: sgemp-service
+      condition: sgemp.enabled
+      name: sgi-esb-external
+      repository: file://../sgi-esb-external
+      version: 0.2.3
+    - alias: sgo-service
+      condition: sgo.enabled
+      name: sgi-esb-external
+      repository: file://../sgi-esb-external
+      version: 0.2.3
+    - alias: sge-service
+      condition: sge.enabled
+      name: sgi-esb-external
+      repository: file://../sgi-esb-external
+      version: 0.2.3
+    - alias: sgdoc-service
+      condition: sgdoc.enabled
+      name: sgi-esb-external
+      repository: file://../sgi-esb-external
+      version: 0.2.3
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: '@bitnami'
+      version: 12.1.9
+    description: An umbrella chart for deploying all SGI services.
+    digest: a34b1096cf0d1c1d684a2a868ddf93e405046c28982c587b711f15fb31ff4cc5
+    name: sgi-umbrella
+    type: application
+    urls:
+    - https://github.com/hercules-sgi/sgi-helm/releases/download/sgi-umbrella-0.1.46/sgi-umbrella-0.1.46.tgz
+    version: 0.1.46
   - apiVersion: v2
     appVersion: umbrella
     created: "2022-12-12T12:28:06.556954078Z"
@@ -693,4 +796,4 @@ entries:
     urls:
     - https://github.com/hercules-sgi/sgi-helm/releases/download/sgi-webapp-0.1.1/sgi-webapp-0.1.1.tgz
     version: 0.1.1
-generated: "2022-12-12T12:28:06.77638572Z"
+generated: "2023-04-12T15:31:47.519213466Z"
