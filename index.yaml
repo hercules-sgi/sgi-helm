@@ -166,6 +166,16 @@ entries:
   sgi-service:
   - apiVersion: v2
     appVersion: image
+    created: "2025-12-05T13:55:39.680267441Z"
+    description: A generic Helm Chart for SGI Spring services
+    digest: 3da5be2b4bb1690b1574d6e51976ec1d2ad8b7e0a94dcbb6cddda987705ca6cd
+    name: sgi-service
+    type: application
+    urls:
+    - https://github.com/hercules-sgi/sgi-helm/releases/download/sgi-service-0.1.9/sgi-service-0.1.9.tgz
+    version: 0.1.9
+  - apiVersion: v2
+    appVersion: image
     created: "2022-12-12T12:28:06.343419975Z"
     description: A generic Helm Chart for SGI Spring services
     digest: f40e9af15787badf7e13b6f4928c879e91fe8c8ed3da91f89fa16e388736a36a
@@ -205,6 +215,99 @@ entries:
     - https://github.com/hercules-sgi/sgi-helm/releases/download/sgi-service-0.1.5/sgi-service-0.1.5.tgz
     version: 0.1.5
   sgi-umbrella:
+  - apiVersion: v2
+    appVersion: umbrella
+    created: "2025-12-05T13:55:39.939063071Z"
+    dependencies:
+    - name: sgi-webapp
+      repository: file://../sgi-webapp
+      version: 0.1.4
+    - alias: sgi-usr-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.9
+    - alias: sgi-eer-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.9
+    - alias: sgi-eti-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.9
+    - alias: sgi-csp-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.9
+    - alias: sgi-pii-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.9
+    - alias: sgi-rel-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.9
+    - alias: sgi-tp-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.9
+    - alias: sgi-rep-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.9
+    - alias: sgi-com-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.9
+    - alias: sgi-cnf-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.9
+    - alias: sgi-prc-service
+      name: sgi-service
+      repository: file://../sgi-service
+      version: 0.1.9
+    - name: sgi-keycloak
+      repository: file://../sgi-keycloak
+      version: 0.1.17
+    - name: sgi-esb
+      repository: file://../sgi-esb
+      version: 0.1.25
+    - alias: sgp-service
+      condition: sgp.enabled
+      name: sgi-esb-external
+      repository: file://../sgi-esb-external
+      version: 0.2.3
+    - alias: sgemp-service
+      condition: sgemp.enabled
+      name: sgi-esb-external
+      repository: file://../sgi-esb-external
+      version: 0.2.3
+    - alias: sgo-service
+      condition: sgo.enabled
+      name: sgi-esb-external
+      repository: file://../sgi-esb-external
+      version: 0.2.3
+    - alias: sge-service
+      condition: sge.enabled
+      name: sgi-esb-external
+      repository: file://../sgi-esb-external
+      version: 0.2.3
+    - alias: sgdoc-service
+      condition: sgdoc.enabled
+      name: sgi-esb-external
+      repository: file://../sgi-esb-external
+      version: 0.2.3
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: '@bitnami'
+      version: 12.1.9
+    description: An umbrella chart for deploying all SGI services.
+    digest: 3e0429b346e59f6311fa8550683512ba466228ccefebd4114bf41c5dc47b6a75
+    name: sgi-umbrella
+    type: application
+    urls:
+    - https://github.com/hercules-sgi/sgi-helm/releases/download/sgi-umbrella-0.1.47/sgi-umbrella-0.1.47.tgz
+    version: 0.1.47
   - apiVersion: v2
     appVersion: umbrella
     created: "2023-04-12T15:31:47.518840582Z"
@@ -796,4 +899,4 @@ entries:
     urls:
     - https://github.com/hercules-sgi/sgi-helm/releases/download/sgi-webapp-0.1.1/sgi-webapp-0.1.1.tgz
     version: 0.1.1
-generated: "2023-04-12T15:31:47.519213466Z"
+generated: "2025-12-05T13:55:39.939163418Z"
