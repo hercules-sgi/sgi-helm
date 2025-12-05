@@ -28,6 +28,7 @@ spec:
       secretName: {{ .secretName }}
     {{- end }}
   {{- end }}
+  ingressClassName: haproxy
   rules:
     {{- range .Values.ingress.hosts }}
     - host: {{ .host | quote }}
